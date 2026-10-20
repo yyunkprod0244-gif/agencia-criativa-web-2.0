@@ -1,8 +1,8 @@
 {
-  "name": "agencia-criativa-web",
+  "name": "nova-dimensao-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Agência Criativa Web: projeto SASS modular com tema 3D imersivo",
+  "description": "Nova Dimensão Web: projeto SASS modular com tema 3D imersivo",
   "scripts": {
     "build": "sass scss/estilos.scss css/estilos.css --no-source-map --style=expanded",
     "watch": "sass --watch scss/estilos.scss css/estilos.css --no-source-map"
