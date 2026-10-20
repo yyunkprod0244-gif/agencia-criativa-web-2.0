@@ -1,0 +1,62 @@
+// ==========================================================
+// _variaveis.scss
+// Tokens do projeto: cores, espaçamentos, fontes, medidas e temas.
+// Nenhuma linha daqui gera CSS sozinha, só valores reutilizáveis.
+// ==========================================================
+@use "sass:math";
+
+// ----- Cores da marca -----
+$cor-primaria: #7c5cff;
+$cor-secundaria: #00d4ff;
+$cor-destaque: #ff4fd8;
+
+// ----- Espaçamentos (base 1rem) -----
+$espacamento: 1rem;
+$espacamento-pequeno: math.div($espacamento, 2); // operador: divisão
+$espacamento-grande: $espacamento * 2;           // operador: multiplicação
+$espacamento-secao: $espacamento * 6;
+
+// ----- Fontes -----
+$fonte-titulo: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+$fonte-texto: "Inter", "Segoe UI", system-ui, sans-serif;
+
+// ----- Medidas -----
+$raio: 1.25rem;
+$raio-pequeno: math.div($raio, 2);
+$largura-max: 72rem;
+$altura-cabecalho: 4.5rem;
+$transicao: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+// ----- Breakpoints (mobile first) -----
+$breakpoints: (
+  "tablet": 48rem,
+  "desktop": 64rem,
+);
+
+// ----- Temas (viram variáveis CSS por meio do mixin "tema") -----
+$temas: (
+  "escuro": (
+    "fundo": #07061a,
+    "fundo-2": #110e36,
+    "superficie": rgba(255, 255, 255, 0.06),
+    "superficie-forte": rgba(255, 255, 255, 0.1),
+    "borda": rgba(255, 255, 255, 0.14),
+    "texto": #eef0ff,
+    "texto-suave": #a9acd1,
+    "brilho": rgba(124, 92, 255, 0.45),
+    "particula": "255, 255, 255",
+    "sombra": "0 30px 60px -20px rgba(0, 0, 0, 0.6)",
+  ),
+  "claro": (
+    "fundo": #f4f2ff,
+    "fundo-2": #e4e0ff,
+    "superficie": rgba(255, 255, 255, 0.7),
+    "superficie-forte": rgba(255, 255, 255, 0.92),
+    "borda": rgba(60, 40, 160, 0.18),
+    "texto": #17133a,
+    "texto-suave": #4d4a78,
+    "brilho": rgba(124, 92, 255, 0.3),
+    "particula": "70, 50, 180",
+    "sombra": "0 30px 60px -25px rgba(60, 40, 160, 0.35)",
+  ),
+);

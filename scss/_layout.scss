@@ -1,0 +1,245 @@
+// ==========================================================
+// _layout.scss
+// Estrutura da página: container, cabeçalho, seções, grades e rodapé.
+// ==========================================================
+@use "variaveis" as v;
+@use "mixins" as m;
+
+.container {
+  width: min(100% - #{v.$espacamento * 2}, #{v.$largura-max});
+  margin-inline: auto;
+}
+
+// ----- Cabeçalho -----
+.cabecalho {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: v.$altura-cabecalho;
+  transition: background-color v.$transicao;
+
+  &--rolado {
+    @include m.vidro;
+    border-width: 0 0 1px;
+  }
+
+  &__conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: v.$espacamento;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: v.$espacamento-pequeno + 0.25rem;
+    font-family: v.$fonte-titulo;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &__marca {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 0.55rem;
+    background: var(--gradiente);
+    box-shadow: 0 0 22px var(--brilho);
+    transform: rotate(45deg);
+    transition: transform v.$transicao;
+
+    .cabecalho__logo:hover & {
+      transform: rotate(225deg) scale(1.1);
+    }
+  }
+
+  &__acoes {
+    display: flex;
+    align-items: center;
+    gap: v.$espacamento-pequeno;
+  }
+
+  &__lista {
+    @include m.vidro;
+    position: absolute;
+    top: calc(100% + #{v.$espacamento-pequeno});
+    right: v.$espacamento;
+    left: v.$espacamento;
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacamento-pequeno;
+    padding: v.$espacamento;
+    border-radius: v.$raio;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.75rem);
+    transition:
+      opacity v.$transicao,
+      transform v.$transicao,
+      visibility v.$transicao;
+
+    &--aberta {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    @include m.responsivo("tablet") {
+      position: static;
+      flex-direction: row;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: v.$espacamento-pequeno v.$espacamento;
+    border-radius: 999px;
+    font-weight: 500;
+    color: var(--texto-suave);
+    transition:
+      color v.$transicao,
+      background-color v.$transicao;
+
+    &:hover,
+    &--ativo {
+      color: var(--texto);
+      background-color: var(--superficie-forte);
+    }
+  }
+
+  &__menu-botao {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    @include m.responsivo("tablet") {
+      display: none;
+    }
+  }
+
+  &__menu-icone {
+    position: relative;
+    width: 1.3rem;
+    height: 2px;
+    background: currentColor;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      top: 6px;
+    }
+  }
+}
+
+// ----- Seções -----
+.secao {
+  position: relative;
+  scroll-margin-top: v.$altura-cabecalho;
+  @include m.espacamento-secao;
+
+  &--compacta {
+    @include m.espacamento-secao(0.6);
+  }
+
+  &__cabecalho {
+    max-width: 40rem;
+    margin-bottom: v.$espacamento * 3;
+
+    &--centro {
+      margin-inline: auto;
+      text-align: center;
+    }
+  }
+
+  &__etiqueta {
+    display: inline-block;
+    margin-bottom: v.$espacamento-pequeno;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--secundaria);
+  }
+
+  &__titulo {
+    margin-bottom: calc(v.$espacamento / 2); // operador dentro do calc()
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  &__subtitulo {
+    font-size: 1.1rem;
+    color: var(--texto-suave);
+  }
+}
+
+// ----- Grades -----
+.grade {
+  display: grid;
+  gap: v.$espacamento-grande;
+  grid-template-columns: 1fr;
+
+  &--servicos {
+    @include m.responsivo("tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.responsivo("desktop") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &--estatisticas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: v.$espacamento;
+
+    @include m.responsivo("desktop") {
+      grid-template-columns: repeat(4, 1fr);
+      gap: v.$espacamento-grande;
+    }
+  }
+}
+
+// ----- Rodapé -----
+.rodape {
+  position: relative;
+  z-index: 1;
+  padding-block: v.$espacamento-grande;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+
+  &__conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: v.$espacamento;
+    font-size: 0.92rem;
+  }
+}

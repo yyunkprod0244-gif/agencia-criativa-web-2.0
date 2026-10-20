@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agência Criativa Web | Experiências web em 3D</title>
+  <meta name="description" content="Agência Criativa Web: design, código e profundidade 3D para criar experiências digitais imersivas e interativas.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS compilado a partir de scss/estilos.scss (npm run build) -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <canvas class="fundo-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-brilho" aria-hidden="true"></div>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+      <a class="cabecalho__logo" href="#inicio" aria-label="Agência Criativa Web, ir para o início">
+        <span class="cabecalho__marca" aria-hidden="true"></span>
+        Agência Criativa Web 2.0
+      </a>
+
+      <nav class="cabecalho__nav" aria-label="Navegação principal">
+        <ul class="cabecalho__lista">
+          <li><a class="cabecalho__link" href="#servicos">Serviços</a></li>
+          <li><a class="cabecalho__link" href="#portfolio">Portfólio</a></li>
+          <li><a class="cabecalho__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <button class="botao-tema" type="button" data-acao="alternar-tema" aria-pressed="false" aria-label="Ativar tema claro">
+          <span class="botao-tema__icone" aria-hidden="true">🌙</span>
+        </button>
+        <button class="cabecalho__menu-botao" type="button" data-acao="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="cabecalho__menu-icone" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="principal">
+
+    <!-- ================= HERO 3D ================= -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <div class="container hero__grade">
+        <div class="hero__conteudo">
+          <span class="hero__selo">Estúdio criativo digital</span>
+          <h1 class="hero__titulo" id="titulo-hero">
+            Sites que você <span class="hero__destaque">sente</span>, não só vê.
+          </h1>
+          <p class="hero__texto">
+            Unimos design, código e profundidade 3D para criar experiências web imersivas, rápidas e inesquecíveis.
+          </p>
+          <div class="hero__acoes">
+            <a class="botao botao--primario" href="#portfolio">Ver portfólio</a>
+            <a class="botao botao--fantasma" href="#contato">Falar com a gente</a>
+          </div>
+          <p class="hero__dica">Mova o mouse (ou o dedo) sobre a cena para explorar em 3D →</p>
+        </div>
+
+        <div class="cena" aria-hidden="true">
+          <div class="cena__palco">
+            <span class="anel anel--3"></span>
+            <span class="anel anel--1"></span>
+            <span class="anel anel--2"></span>
+
+            <div class="cena__camada">
+              <div class="cubo">
+                <div class="cubo__face cubo__face--frente">Design</div>
+                <div class="cubo__face cubo__face--direita">Código</div>
+                <div class="cubo__face cubo__face--tras">Marca</div>
+                <div class="cubo__face cubo__face--esquerda">3D</div>
+                <div class="cubo__face cubo__face--topo">UX</div>
+                <div class="cubo__face cubo__face--base">Web</div>
+              </div>
+            </div>
+
+            <span class="orbe orbe--a">✦ UX</span>
+            <span class="orbe orbe--b">{ } Código</span>
+            <span class="orbe orbe--c">◆ Marca</span>
+            <span class="orbe orbe--d">⬡ 3D</span>
+          </div>
+          <div class="cena__sombra"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NÚMEROS ================= -->
+    <section class="secao secao--compacta" aria-label="Nossos números">
+      <div class="container grade grade--estatisticas">
+        <div class="revelar">
+          <div class="estatistica">
+            <div class="estatistica__numero" data-contar="120" data-prefixo="+">0</div>
+            <div class="estatistica__rotulo">Projetos entregues</div>
+          </div>
+        </div>
+        <div class="revelar" style="--atraso: .1s">
+          <div class="estatistica">
+            <div class="estatistica__numero" data-contar="98" data-sufixo="%">0</div>
+            <div class="estatistica__rotulo">Clientes satisfeitos</div>
+          </div>
+        </div>
+        <div class="revelar" style="--atraso: .2s">
+          <div class="estatistica">
+            <div class="estatistica__numero" data-contar="15">0</div>
+            <div class="estatistica__rotulo">Prêmios de design</div>
+          </div>
+        </div>
+        <div class="revelar" style="--atraso: .3s">
+          <div class="estatistica">
+            <div class="estatistica__numero" data-contar="8">0</div>
+            <div class="estatistica__rotulo">Anos de estrada</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVIÇOS ================= -->
+    <section class="secao" id="servicos" aria-labelledby="titulo-servicos">
+      <div class="container">
+        <header class="secao__cabecalho secao__cabecalho--centro revelar">
+          <span class="secao__etiqueta">O que fazemos</span>
+          <h2 class="secao__titulo" id="titulo-servicos">Serviços com profundidade</h2>
+          <p class="secao__subtitulo">Passe o mouse sobre os cartões e sinta a inclinação em 3D.</p>
+        </header>
+
+        <div class="grade grade--servicos">
+          <div class="revelar">
+            <article class="cartao" data-tilt="10">
+              <div class="cartao__icone" aria-hidden="true">🎨</div>
+              <h3 class="cartao__titulo">Design de Interface</h3>
+              <p class="cartao__texto">Interfaces claras e expressivas, com sistemas de design prontos para escalar.</p>
+            </article>
+          </div>
+          <div class="revelar" style="--atraso: .1s">
+            <article class="cartao" data-tilt="10">
+              <div class="cartao__icone" aria-hidden="true">⚡</div>
+              <h3 class="cartao__titulo">Desenvolvimento Web</h3>
+              <p class="cartao__texto">HTML, CSS e JavaScript modernos: acessíveis, responsivos e de alto desempenho.</p>
+            </article>
+          </div>
+          <div class="revelar" style="--atraso: .2s">
+            <article class="cartao" data-tilt="10">
+              <div class="cartao__icone" aria-hidden="true">🧊</div>
+              <h3 class="cartao__titulo">Experiências 3D</h3>
+              <p class="cartao__texto">Cenas interativas que reagem ao mouse, ao toque e à rolagem da página.</p>
+            </article>
+          </div>
+          <div class="revelar" style="--atraso: .3s">
+            <article class="cartao" data-tilt="10">
+              <div class="cartao__icone" aria-hidden="true">🚀</div>
+              <h3 class="cartao__titulo">Branding Digital</h3>
+              <p class="cartao__texto">Identidade visual e presença online coerentes, do logo ao último pixel.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PORTFÓLIO (carrossel 3D) ================= -->
+    <section class="secao" id="portfolio" aria-labelledby="titulo-portfolio">
+      <div class="container">
+        <header class="secao__cabecalho secao__cabecalho--centro revelar">
+          <span class="secao__etiqueta">Trabalhos recentes</span>
+          <h2 class="secao__titulo" id="titulo-portfolio">Portfólio em órbita</h2>
+          <p class="secao__subtitulo">Arraste para girar, use as setas ou os botões abaixo.</p>
+        </header>
+
+        <div class="carrossel" data-carrossel role="region" aria-roledescription="carrossel" aria-label="Projetos do portfólio" tabindex="0">
+          <div class="carrossel__anel">
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">01</span>
+              <span class="carrossel__tag">Identidade + loja</span>
+              <h3 class="carrossel__titulo">Lumen Café</h3>
+              <p class="carrossel__descricao">Marca e e-commerce com vitrine animada.</p>
+            </article>
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">02</span>
+              <span class="carrossel__tag">App financeiro</span>
+              <h3 class="carrossel__titulo">Órbita Bank</h3>
+              <p class="carrossel__descricao">Painel claro, seguro e cheio de microinterações.</p>
+            </article>
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">03</span>
+              <span class="carrossel__tag">Landing page 3D</span>
+              <h3 class="carrossel__titulo">Pulse Fit</h3>
+              <p class="carrossel__descricao">Página de conversão com cena 3D no topo.</p>
+            </article>
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">04</span>
+              <span class="carrossel__tag">Portal imersivo</span>
+              <h3 class="carrossel__titulo">Atlas Viagens</h3>
+              <p class="carrossel__descricao">Destinos explorados com parallax em camadas.</p>
+            </article>
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">05</span>
+              <span class="carrossel__tag">Galeria virtual</span>
+              <h3 class="carrossel__titulo">Nova Arte</h3>
+              <p class="carrossel__descricao">Exposição online navegável em três dimensões.</p>
+            </article>
+            <article class="carrossel__item">
+              <span class="carrossel__numero" aria-hidden="true">06</span>
+              <span class="carrossel__tag">Dashboard SaaS</span>
+              <h3 class="carrossel__titulo">Vértice Tech</h3>
+              <p class="carrossel__descricao">Dados complexos com leitura simples e rápida.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="carrossel__controles">
+          <button class="botao botao--fantasma botao--redondo" type="button" data-carrossel-acao="anterior" aria-label="Projeto anterior">←</button>
+          <span class="carrossel__status" data-carrossel-status aria-live="polite">Projeto 1 de 6</span>
+          <button class="botao botao--fantasma botao--redondo" type="button" data-carrossel-acao="proximo" aria-label="Próximo projeto">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="secao" id="contato" aria-labelledby="titulo-contato">
+      <div class="container">
+        <header class="secao__cabecalho secao__cabecalho--centro revelar">
+          <span class="secao__etiqueta">Vamos conversar</span>
+          <h2 class="secao__titulo" id="titulo-contato">Conte sua ideia</h2>
+          <p class="secao__subtitulo">Respondemos em até um dia útil.</p>
+        </header>
+
+        <div class="revelar">
+          <form class="formulario" data-formulario novalidate>
+            <div class="formulario__campo">
+              <label class="formulario__rotulo" for="campo-nome">Nome</label>
+              <input class="formulario__entrada" id="campo-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required minlength="2">
+            </div>
+            <div class="formulario__campo">
+              <label class="formulario__rotulo" for="campo-email">E-mail</label>
+              <input class="formulario__entrada" id="campo-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
+            </div>
+            <div class="formulario__campo">
+              <label class="formulario__rotulo" for="campo-mensagem">Mensagem</label>
+              <textarea class="formulario__entrada formulario__entrada--area" id="campo-mensagem" name="mensagem" placeholder="Fale um pouco sobre o projeto" required minlength="10"></textarea>
+            </div>
+            <button class="botao botao--primario" type="submit">Enviar mensagem</button>
+            <p class="formulario__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="rodape">
+    <div class="container rodape__conteudo">
+      <p>© 2026 Douglas Henrique · Agência Criativa Web</p>
+      <p>Feito com HTML, SASS e JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

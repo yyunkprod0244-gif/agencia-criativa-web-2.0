@@ -1,0 +1,12 @@
+// ==========================================================
+// estilos.scss — arquivo principal
+// Agência Criativa Web
+//
+// Compile com:  npm run build
+// Saída:        css/estilos.css
+// ==========================================================
+@use "variaveis";
+@use "mixins";
+@use "base";
+@use "layout";
+@use "componentes";

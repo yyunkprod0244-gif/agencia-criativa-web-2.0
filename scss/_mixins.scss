@@ -1,0 +1,88 @@
+// ==========================================================
+// _mixins.scss
+// Blocos reutilizáveis de estilo.
+// ==========================================================
+@use "sass:map";
+@use "variaveis" as v;
+
+// Gera as variáveis CSS (--texto, --fundo...) de um tema do mapa $temas
+@mixin tema($nome) {
+  @each $chave, $valor in map.get(v.$temas, $nome) {
+    --#{$chave}: #{$valor};
+  }
+}
+
+// Media query mobile first, usando os breakpoints do mapa
+@mixin responsivo($nome) {
+  @media (min-width: map.get(v.$breakpoints, $nome)) {
+    @content;
+  }
+}
+
+// Respeita quem prefere menos movimento
+@mixin reduzir-movimento {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// MIXIN 1: botão padrão (usado em .botao)
+@mixin botao-base($fundo, $texto: #fff) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$espacamento-pequeno;
+  padding: v.$espacamento * 0.85 v.$espacamento * 1.75;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: v.$fonte-texto;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $texto;
+  background: $fundo;
+  cursor: pointer;
+  transition:
+    transform v.$transicao,
+    box-shadow v.$transicao,
+    border-color v.$transicao,
+    background-position v.$transicao;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+// MIXIN 2: espaçamento vertical padrão das seções
+@mixin espacamento-secao($fator: 1) {
+  padding-block: v.$espacamento-secao * $fator;
+}
+
+// MIXIN 3: efeito vidro (glassmorphism)
+@mixin vidro($desfoque: true) {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+
+  @if $desfoque {
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+  }
+}
+
+// MIXIN 4: contexto 3D (perspectiva + filhos mantêm a profundidade)
+@mixin cena-3d($perspectiva: 1000px) {
+  perspective: $perspectiva;
+  transform-style: preserve-3d;
+}
+
+// MIXIN 5: texto com gradiente
+@mixin texto-gradiente {
+  background: var(--gradiente);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
