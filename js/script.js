@@ -1,7 +1,7 @@
 'use strict';
 
 /* ==========================================================
-   Agência Criativa Web: interações 3D
+   Nova Dimensão Web: interações 3D
    Módulos: tema, fundo 3D (canvas), cena do hero, tilt dos
    cartões, carrossel 3D, revelar ao rolar, contadores,
    cabeçalho, formulário e brilho do cursor.
